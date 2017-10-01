@@ -3,7 +3,6 @@ import socket
 import getopt
 import threading
 import subprocess
-
 listen = False
 upload = False
 command= True
@@ -11,8 +10,6 @@ execute = ""
 target = ""
 port = 0
 upload_destination = ""
-
-
 '''
 Like a TCP client we first connect ourselves to the server
 in this case we wait for a reply in a loop
@@ -46,23 +43,21 @@ def client_send(mybuffer):
                 
                 recv_len = len(data)
                 #print "Received data is as ",data
-                response+=data
+                response=response+data
                 
                 if recv_len < 4096 :
                     break
                 
             print response,
-                
-            mybuffer = input("")
-            mybuffer +="\n"
+            mybuffer = raw_input("")
+            print "input as",mybuffer
+            mybuffer = mybuffer + "\n"
             client.send(mybuffer)
         
     except Exception as inst:
         print "Exception (*) Exiting with exception ", inst
         client.close()
     
-
-
 def run_command(command):
     '''
     This is done to strip the command of new line characters
@@ -76,8 +71,6 @@ def run_command(command):
     except:
         output = "Failed to execute command"
     return output
-
-
 '''
 Argument passed to this function is of type client
 This is the function which handles most of the listen mode functionality
@@ -97,7 +90,7 @@ def handle_client(clientObject):
             if not data:
                 break
             else:
-                file_buffer+=data
+                file_buffer=filebuffer+data
         try:
             file_descript = open(upload_destination,"wb")
             file_descript.write(file_buffer)
@@ -107,7 +100,6 @@ def handle_client(clientObject):
         except:
             clientObject.send("Could not save file to destination")
             clientObject.close()
-
     print "command as ", command
     if len(execute):
         #print "Command execution will be initiated!"
@@ -120,7 +112,7 @@ def handle_client(clientObject):
             clientObject.send("<Netcat: >")
             cmd_buffer=""
             while "\n" not in cmd_buffer:
-                cmd_buffer+=clientObject.recv(1024)
+                cmd_buffer = cmd_buffer+ clientObject.recv(4096)
             
             print "Received buffer as ", cmd_buffer
             response =  run_command(cmd_buffer)
@@ -140,7 +132,6 @@ def server_loop():
         print "Client connection initiated with client at",addr[0]," at port ",addr[1]
         client_handler= threading.Thread(target=handle_client,args=(client_sock,))
         client_handler.start()
-
 def usage():
     print "ysUtility v1.0"
     print "Usage :-> netcat.py -t target_host -p port"
@@ -149,7 +140,6 @@ def usage():
     print "-c --command initialize a command shell"
     print "-u --upload=destination upon receiving a connection write a file and upload to destination"
     sys.exit(0)
-
 def main():
     global listen
     global execute
@@ -200,4 +190,3 @@ def main():
         server_loop()
     
 main()
-
