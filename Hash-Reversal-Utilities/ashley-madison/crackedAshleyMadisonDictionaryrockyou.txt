@@ -242,3 +242,105 @@ User::174vt ::Password: troutlake
  
 User::pfm1998 ::Password: lavinia
  
+User::stan ::Password: 63345
+ 
+User::ziro ::Password: 22222
+ 
+User::guylooking ::Password: qwertyui
+ 
+User::mbk ::Password: 55311
+ 
+User::jasper ::Password: 042257
+ 
+User::haldar007 ::Password: chandos
+ 
+User::want_u ::Password: coffee25
+ 
+User::luigi ::Password: lisap
+ 
+User::mustang ::Password: 212100
+ 
+User::truck ::Password: pathfinder
+ 
+User::jade ::Password: happy
+ 
+User::jockboy ::Password: bates
+ 
+User::marko ::Password: 62480
+ 
+User::marco ::Password: 62480
+ 
+User::lola ::Password: beautiful
+ 
+User::ohsheila ::Password: beautiful
+ 
+User::sensualman321 ::Password: nicholas
+ 
+User::mr. blue ::Password: blue7353
+ 
+User::sisman ::Password: mugen
+ 
+User::j.p. ::Password: 55555
+ 
+User::nobber ::Password: catholic
+ 
+User::flash ::Password: bobert
+ 
+User::jakes8 ::Password: action
+ 
+User::tammycat ::Password: 12345678
+ 
+User::hotty ::Password: 090165
+ 
+User::kakamike ::Password: marime
+ 
+User::dragonlance ::Password: sammy
+ 
+User::starj2000 ::Password: marime
+ 
+User::doc ::Password: 99998
+ 
+User::dare ::Password: sixstring
+ 
+User::senseuwas ::Password: payton1
+ 
+User::markch ::Password: 12345
+ 
+User::hardbod ::Password: 12345
+ 
+User::ripped ::Password: 12345
+ 
+User::firm ::Password: 12345
+ 
+User::rockhardd ::Password: 12345
+ 
+User::rockhardde ::Password: 12345
+ 
+User::jack1 ::Password: 25001
+ 
+User::garry ::Password: zebra
+ 
+User::shmngi ::Password: justin
+ 
+User::steven ::Password: mollie
+ 
+User::johnny ::Password: london
+ 
+User::bigboy ::Password: scarface
+ 
+User::wildthing ::Password: weasel
+ 
+User::hotlips654 ::Password: london
+ 
+User::drayton ::Password: drayton
+ 
+User::shark68 ::Password: cashcash
+ 
+User::reggiesound9 ::Password: mark9
+ 
+User::puts ::Password: neuchatel
+ 
+User::abad70 ::Password: russell
+ 
+User::sstoolbox ::Password: virginia
+ 
