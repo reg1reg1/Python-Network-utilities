@@ -8,10 +8,12 @@ import threading
 import time
 
 '''
-Multithreaded tcp SYN scanner
-It scans for ports
-A port which is open might not necessarily send "SYN-ACK"
-A firewall may cause a silent drop
+Multiscanner written in python2
+* Performs UDP scan
+* Performs TCP scans
+* Does OS fingerprinting
+* Takes user input for Host Ip address, and the start and end ports
+* For more information, see usage
 
 Written in python 2
 '''
@@ -91,7 +93,7 @@ class ScannerThread(threading.Thread):
 			total_ports+=1
 
 def usage():
-	print("python synscanner.py -t <ipaaddress> -s <port> -e <port>")
+	print("python multiscanner.py -t <ipaaddress> -s <port> -e <port>")
 	print("If no ip address is specified it will scan on 0.0.0.0")
 	print("start port default <0>")
 	print("Finish port default <65536>")
