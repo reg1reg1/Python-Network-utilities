@@ -84,8 +84,6 @@ def usage():
 	print(str4)
 
 def finalattack():
-	#Write code for argument parsing
-	print("Parsing arguments.....")
 	str1="Arpspoof script to arpspoof a host. Must be on the same network as the victim(S)\n Enter the routerIp as python arpspoof.py <routerIp> <victimIp>"
 	parser = argparse.ArgumentParser(description=str1)
 
