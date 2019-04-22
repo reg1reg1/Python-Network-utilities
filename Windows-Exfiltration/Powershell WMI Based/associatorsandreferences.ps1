@@ -3,6 +3,8 @@
 #"Associators of" can be used to get assosciations of al
 Get-WmiObject -Class Win32_NetworkAdapter -Filter "DeviceId=2"
 Get-WmiObject -Query "Associators of Win32_NetworkAdapter.DeviceId=11"
+Get-WmiObject -Query "Associators of Win32_Process" -Filter "DeviceId=12"
+Get-WmiObject -Query ""
 Get-WmiObject -Query "Associators of Win32_NetworkAdapter.DeviceId=11 Where ClassDefsOnly"
 
 
