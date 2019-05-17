@@ -35,7 +35,7 @@ SessionGopher is an important tool that helps in doing effective active director
 #>
 
 
-#Active Directory Enumeration:
+#ACTIVE DIRECTORY ENUMERATION/(AD WALKING):
 #Be careful about sending invasive and excessive queries to the domain contorller.
 <#
 For active directory namespace (root/directory/ldap) we will see two kinds of classes
@@ -43,7 +43,10 @@ Ones which begin with ds_ and the others that begin with as_
 The ones which begin with as_ are abstract and cannot be instantiated.
 
 #>
-#Lot of interesting properties and methods of the class will pop up
+#Lot of interesting properties and methods of the class will pop up 
+
+#First thing to find out on a compromised box is the current domain
+#You can selectively look at different columns of interest
 Get-WmiObject -Namespace root/directory/ldap -Class ds_domain
 
 #Let us look at the domain controller for the current box
