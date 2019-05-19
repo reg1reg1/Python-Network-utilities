@@ -52,8 +52,15 @@ Get-WmiObject -Namespace root/directory/ldap -Class ds_domain
 #Let us look at the domain controller for the current box
 Get-WmiObject -Namespace root/directory/ldap -Class ds_domain | Select -ExpandProperty ds_dc
 
-Get-WmiObject -Namespace root/directory/ldap -Class ds_computer
+Get-WmiObject -Namespace root/directory/ldap -Class ds_computer | Select 
 
+#get all domain users
+Get-WmiObject -Class Win32_UserAccount
+Get-WmiObject -Class Win32_Group
+Get-WmiObject -Class Win32_GroupInDomain
+
+#Useful query
+Get-WmiObject -Class Win32_GroupInDomain | Foreach-Object {[wmi]$_.PartComponent}
 #Too many properties, let us look at the non-empty properties of the GCOM-PC01 machine
 (Get-WmiObject -Namespace root/directory/ldap -Class ds_computer | Where-Object {$_.ds_cn -eq
  "GCOM-PC01" }).Properties | Foreach-Object {If($_.value -AND $_.name -notmatch "__"){@{$($_.name)=$($_.value)}}}
