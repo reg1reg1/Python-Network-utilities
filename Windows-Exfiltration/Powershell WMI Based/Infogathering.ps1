@@ -35,7 +35,7 @@ SessionGopher is an important tool that helps in doing effective active director
 #>
 
 
-#Active Directory Enumeration:
+#ACTIVE DIRECTORY ENUMERATION/(AD WALKING):
 #Be careful about sending invasive and excessive queries to the domain contorller.
 <#
 For active directory namespace (root/directory/ldap) we will see two kinds of classes
@@ -43,14 +43,24 @@ Ones which begin with ds_ and the others that begin with as_
 The ones which begin with as_ are abstract and cannot be instantiated.
 
 #>
-#Lot of interesting properties and methods of the class will pop up
+#Lot of interesting properties and methods of the class will pop up 
+
+#First thing to find out on a compromised box is the current domain
+#You can selectively look at different columns of interest
 Get-WmiObject -Namespace root/directory/ldap -Class ds_domain
 
 #Let us look at the domain controller for the current box
 Get-WmiObject -Namespace root/directory/ldap -Class ds_domain | Select -ExpandProperty ds_dc
 
-Get-WmiObject -Namespace root/directory/ldap -Class ds_computer
+Get-WmiObject -Namespace root/directory/ldap -Class ds_computer | Select 
 
+#get all domain users
+Get-WmiObject -Class Win32_UserAccount
+Get-WmiObject -Class Win32_Group
+Get-WmiObject -Class Win32_GroupInDomain
+
+#Useful query
+Get-WmiObject -Class Win32_GroupInDomain | Foreach-Object {[wmi]$_.PartComponent}
 #Too many properties, let us look at the non-empty properties of the GCOM-PC01 machine
 (Get-WmiObject -Namespace root/directory/ldap -Class ds_computer | Where-Object {$_.ds_cn -eq
  "GCOM-PC01" }).Properties | Foreach-Object {If($_.value -AND $_.name -notmatch "__"){@{$($_.name)=$($_.value)}}}
