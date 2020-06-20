@@ -25,7 +25,6 @@ def handlePacket(pkt):
 def sniffHiddenSsid(k):
     global interface
     channel = k
-    
     p = call(['iwconfig',interface,'channel',str(channel)], stdout=PIPE)
     packet=sniff(iface=interface,prn=handlePacket,count=20,timeout=30)
 
