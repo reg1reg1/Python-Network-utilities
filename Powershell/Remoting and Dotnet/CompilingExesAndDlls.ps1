@@ -38,5 +38,13 @@ Add-Type -TypeDefinition $DotNetCSharp -OutputType ConsoleApplication -OutputAss
 
 
 #To access the DLL file, we can use the passthru parameter
+$var2 = Add-Type -Path .\InvokeDotNetClasses.dll -PassThru
+#We can then enumerate members using the var2 variable. We basically can then access all the functions via this DLL file we just outputted to
 
-$obj = Add-Type -Path .\InvokeDotNetClasses.dll -PassThru
+$var2 | Get-Member -Static 
+
+# This would not show us the non-static regedit member 
+#Use the Getmethods function instead if you want access to all the methods.
+$var2.GetMethods() | Where-Object {$_.Name -match "regedit"}
+
+#the ability to load dlls and use functions within powershell using dotnet, makes it very powerful tool
