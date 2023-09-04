@@ -18,5 +18,5 @@ function HideFromUser
 {
 	Write-Output "Hide this function from user"
 }
-
+#Adding this will only export function with hyphen in their names
 Export-ModuleMember -Function "*-*"
