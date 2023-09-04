@@ -32,6 +32,7 @@ Add-Type -TypeDefinition $DotNetCSharp
 
 
 #Alternatively
-#Methods must be static to be accessed via this syntax
+#Methods must be non-static as we are accessing the method via a instance of the class
 $obj = New-Object Syscommands
 $obj.regeditStart()
+
